@@ -1,0 +1,139 @@
+.topBar{
+    width: 100%;
+    height: 3%;
+    background-color: #A59696;
+    display: flex;
+    font-weight: 600;
+    text-align: justify;
+    border: 2px solid black;
+    border-bottom: 0;
+}
+
+.LoggedInAs p{
+    margin: 0;
+    display: inline-block;
+    text-align: left;
+    padding-top: 5%;
+}
+
+.Logout p{
+    margin: 0;
+    display: inline-block;
+    text-align: left;
+    padding-top: 12%;
+    padding-left: 3100%;
+    cursor: pointer;
+}
+
+
+.menu{
+    background-color: #D9D9D9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8%;
+    margin-top: 0%;
+    padding: 0;
+}
+
+.menu ul{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li{
+    display: inline-block;
+    height: 100%;
+    width: 16.6674%;
+    text-align: center;
+    border: 2px solid black;
+} 
+
+.menu li:hover{
+    background-color: #AAAAAA;
+    text-decoration: none;
+}
+
+
+.menu li a{
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    padding-top: 8%;
+    font-size:x-large;
+    font-weight: 600;
+}
+
+.selected{
+    background-color: #AAAAAA;
+}
+
+.content{
+    display: block;
+    position: absolute;
+    bottom: 0;
+    height: 88%;
+    width: 100%;
+}
+
+.content p{
+    text-align: left;
+}
+
+.table-responsive {    
+    max-height: 800px;
+    border-radius: 10px;
+    overflow: auto; 
+    margin-top: 30px;
+    margin-right: 140px;
+    width: 85%;
+    float: right;
+    text-align: center;
+  }
+  
+  .Table {
+    table {
+      &.table-rounded {
+        thead {
+          th {
+            position: relative;
+            top: 0;
+            background-color: dodgerblue;
+            z-index: 10;
+          }
+        }      
+      }
+    }
+    display: flex;
+    justify-content: center;
+  }
+  
+  tbody{
+    td{
+        a{
+          color:#333;
+          text-decoration: none;    
+          &::before {
+          content: " ";        
+      }     
+      }
+    }
+  }
+
+  .AddAdmin input{
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .AddAdmin{
+    width: fit-content;
+    margin-top: 650px;
+    margin-left: 45%;
+  }
+
+  .AddAdmin button{
+    margin-left: 25px;
+    width: 150px;
+  }

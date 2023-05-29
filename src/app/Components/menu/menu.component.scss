@@ -1,0 +1,43 @@
+.menu{
+    background-color: #D9D9D9;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8%;
+    margin-top: 0%;
+    padding: 0;
+}
+
+.menu ul{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li{
+    display: inline-block;
+    height: 100%;
+    width: 16.6674%;
+    text-align: center;
+    border: 2px solid black;
+} 
+
+.menu li:hover{
+    background-color: #AAAAAA;
+    text-decoration: none;
+}
+
+
+.menu li a{
+    display: inline-block;
+    color: #333;
+    text-decoration: none;
+    padding-top: 8%;
+    font-size:x-large;
+    font-weight: 600;
+}
+
+.selected{
+    background-color: #AAAAAA;
+}

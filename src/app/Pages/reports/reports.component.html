@@ -1,0 +1,55 @@
+<div class="topBar">
+    <div class="LoggedInAs">
+      <p>Logged in as: XXX</p>
+    </div>
+    <div class="Logout">
+      <p routerLink="/" (click)="logout()">Logout</p>
+    </div>
+  </div>
+  <div class="menu">
+      <ul>
+        <li><a routerLink="/Home">Home</a></li>
+        <li><a routerLink="/Computers">Computers</a></li> 
+        <li><a routerLink="/Groups">Groups</a></li>
+        <li><a routerLink="/Configs">Configs</a></li>
+        <li class="selected"><a routerLink="/Reports">Reports</a></li>
+        <li><a routerLink="/Admins">Admins</a></li>
+  
+      </ul>
+    </div>
+    <div class="content">
+      
+  </div>
+
+  <div class="content">
+    <div class="table-responsive">
+      <div class="Table">
+        <table class="table-rounded table" bgColor="black">
+            <thead>
+                <tr>
+                    <th>Commputer name</th>
+                    <th>Error</th>
+                    <th>Date</th>
+                    <th>Config</th>
+                    <th>Messages</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of reports">
+                  <td>{{item.computerName}}</td>
+                  <td>{{item.errors}}</td>
+                  <td>{{item.date}}</td>
+                  <td>{{item.configName}}</td>
+                  <td>{{item.message}}</td>
+                </tr>                 
+            </tbody>                  
+          </table>
+    </div>
+    </div>
+  </div>
+
+  <div class="buttonSend">
+    <button type="button" class="btn btn-success">Send Overview</button>
+  </div>
+
+  

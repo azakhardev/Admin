@@ -1,0 +1,56 @@
+<div class="topBar">
+  <div class="LoggedInAs">
+    <p>Logged in as: XXX</p>
+  </div>
+  <div class="Logout">
+    <p routerLink="/" (click)="logout()">Logout</p>
+  </div>
+</div>
+<div class="menu">
+    <ul>
+      <li><a routerLink="/Home">Home</a></li>
+      <li><a routerLink="/Computers">Computers</a></li> 
+      <li><a routerLink="/Groups">Groups</a></li>
+      <li class="selected"><a routerLink="/Configs">Configs</a></li>
+      <li><a routerLink="/Reports">Reports</a></li>
+      <li><a routerLink="/Admins">Admins</a></li>
+
+    </ul>
+  </div>
+ 
+  <div class="table-responsive">
+    <div class="Table">
+    <table class="table-rounded table" bgColor="black">
+        <thead>
+            <tr>
+                <th>Remove</th>
+                <th>Name</th>
+                <th>Algorithm</th>
+                <th>Creaton date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of config">
+              <td>
+                <button type="button" class="btn btn-link" (click)="delete(item)">
+                    <i class="bi bi-trash3"></i>
+                </button>
+            </td>
+                <td><a [routerLink]="['/Configs',item.id]">{{item.configName}}</a></td>
+                <td>{{item.algorithm}}</td>
+                <td>{{item.creationDate}}</td>
+              </tr>                                               
+        </tbody>                  
+      </table>
+  </div>
+  </div>
+     
+
+  <div class="navigation">
+    <ul>
+      <li class="selected"><a routerLink="/Configs/NewConfig">Configs and edit</a></li>
+      <li><a routerLink="/Configs/NewConfig">New Config</a></li>
+    </ul>
+  </div>
+
+  

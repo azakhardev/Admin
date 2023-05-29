@@ -1,0 +1,39 @@
+.table{
+    width: 100%;
+    margin-top: 2%;
+    margin-left: 2%;
+    border-collapse: collapse; 
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+caption{
+    caption-side: top;
+    text-align: center;
+    background-color: #4B93FF;
+    color: black;
+    font-size: larger;
+}
+
+.table-container {
+  height: 600px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding-left: 32px;
+  text-align: left;
+}
+
+tr{
+    background-color: lightgrey;
+}
+
+table i{
+    font-size: xx-large;
+}

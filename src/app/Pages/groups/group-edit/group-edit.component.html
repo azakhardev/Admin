@@ -1,0 +1,226 @@
+<div class="topBar">
+    <div class="LoggedInAs">
+      <p>Logged in as: XXX</p>
+    </div>
+    <div class="Logout">
+      <p routerLink="/" (click)="logout()">Logout</p>
+    </div>
+  </div>
+  <div class="menu">
+      <ul>
+        <li><a routerLink="/Home">Home</a></li>
+        <li><a routerLink="/Computers">Computers</a></li> 
+        <li class="selected"><a routerLink="/Groups">Groups</a></li>
+        <li><a routerLink="/Configs">Configs</a></li>
+        <li><a routerLink="/Reports">Reports</a></li>
+        <li><a routerLink="/Admins">Admins</a></li>
+  
+      </ul>
+    </div>
+
+    
+
+    <div class="content">
+
+        <div class="EditLabel">
+            Group1 Edit
+        </div>
+
+        <table class="table table-borderless">
+            <caption>Configs</caption>
+            <div class="table-container">
+            <tr>
+              <td>Config1</td>
+            </tr>
+            <tr>
+              <td>Config2</td>
+            </tr>
+            <tr>
+              <td>Config3</td>
+            </tr>
+            <tr>
+              <td>Config4</td>
+            </tr>
+            <tr>
+              <td>Config5</td>
+            </tr>
+            <tr>
+              <td>Config6</td>
+            </tr>
+            <tr>
+              <td>Config7</td>
+            </tr>
+            <tr>
+              <td>Config8</td>
+            </tr>
+            <tr>
+              <td>Config9</td>
+            </tr>
+            <tr>
+              <td>Config10</td>
+            </tr>
+            <tr>
+              <td>Config11</td>
+            </tr>
+            <tr>
+              <td>Config31</td>
+            </tr>
+            <tr>
+              <td>Config35</td>
+            </tr>
+            <tr>
+              <td>Config37</td>
+            </tr>
+            <tr>
+              <td>Config36</td>
+            </tr>
+            <tr>
+              <td>Config38</td>
+            </tr>
+            <tr>
+              <td>Config39</td>
+            </tr>
+          </div>
+          </table>
+          
+          <table class="table table-borderless">
+            <caption>Computers in group</caption>
+            <div class="table-container">
+            <tr>
+              <td>Computer1</td>
+            </tr>
+            <tr>
+              <td>Computer2</td>
+            </tr>
+            <tr>
+              <td>Computer3</td>
+            </tr>
+            <tr>
+              <td>Computer4</td>
+            </tr>
+            <tr>
+              <td>Computer5</td>
+            </tr>
+            <tr>
+              <td>Computer6</td>
+            </tr>
+            <tr>
+              <td>Computer7</td>
+            </tr>
+            <tr>
+              <td>Computer8</td>
+            </tr>
+            <tr>
+              <td>Computer9</td>
+            </tr>
+            <tr>
+              <td>Computer10</td>
+            </tr>
+            <tr>
+              <td>Computer11</td>
+            </tr>
+            <tr>
+              <td>Computer12</td>
+            </tr>
+            <tr>
+              <td>Computer13</td>
+            </tr>
+            <tr>
+              <td>Computer14</td>
+            </tr>
+            <tr>
+              <td>Computer15</td>
+            </tr>
+            <tr>
+              <td>Computer16</td>
+            </tr>
+            <tr>
+              <td>Computer17</td>
+            </tr>
+            <tr>
+              <td>Computer18</td>
+            </tr>
+          </div>
+          </table>
+          
+
+      <div class="GroupName">
+        Group Name:
+        <input type="text" name="Group_Name" value="Group1">
+      </div>
+
+      <div class="AddConfigBlock">
+        <select name="AddConfig" class="AddConfig">
+          <option value="Config1">Config1</option>
+          <option value="Config2">Config2</option>
+          <option value="Config3">Config3</option>
+          <option value="Config4">Config4</option>
+          <option value="Config5">Config5</option>
+          <option value="Config6">Config6</option>
+        </select>
+        
+        <div class="firstButton">
+        <button type="button" class="btn btn-success">Add config</button>
+    </div>
+        <div class="secondButton">
+        <button type="button" class="btn btn-success">New config</button>
+    </div>
+      </div>
+
+      <div class="AddComputerBlock">
+      <select name="AddComputer" class="AddComputer">
+        <option value="Computer1">Computer1</option>
+        <option value="Computer2">Computer2</option>
+        <option value="Computer3">Computer3</option>
+        <option value="Computer4">Computer4</option>
+        <option value="Computer5">Computer5</option>
+        <option value="Computer6">Computer6</option>
+      </select>
+
+      <button type="button" class="btn btn-success">Add computer</button>
+    </div>
+
+    <div class="AlgorithmBlock">
+        <h3>Algorithm:</h3>
+
+        <button type="button" class="btn btn-secondary Full selected">Full</button>
+        <button type="button" class="btn btn-secondary Differential">Differential</button>
+        <button type="button" class="btn btn-secondary Incremental">Incremental</button>
+
+        <div class="HH">
+        <h3>Package configuration: </h3>
+        <h3>Format: </h3>
+    </div>
+        <div class="Amnt">
+        <p>Amount of packages: <input type="number" name="AmountOfPackages" value="2"></p>
+        <button type="button" class="btn btn-secondary Plain">Plain</button>
+    
+        <p>Package pieces: <input type="number" name="AmountOfPackages" value="2"></p>
+        <button type="button" class="btn btn-secondary Zip selected">Zip</button>
+        </div>
+        
+    </div>
+
+    <div class="Schedule">
+        <h3>Schedule:</h3>
+
+        <button type="button" class="btn btn-secondary Simple selected">Simple</button>
+        <button type="button" class="btn btn-secondary Advanced">Advanced</button>
+
+        <div class="HHH">
+        <h3>Every: </h3>
+        
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn btn-secondary week">Mon</button>
+        <button type="button" class="btn btn-secondary week">Tue</button>
+        <button type="button" class="btn btn-secondary week">Wed</button>
+        <button type="button" class="btn btn-secondary week">Thu</button>
+        <button type="button" class="btn btn-secondary week">Fri</button>
+        <button type="button" class="btn btn-secondary week">Sat</button>
+        <button type="button" class="btn btn-secondary week">Sun</button>
+      </div>
+      
+    </div>
+    
+    </div>

@@ -1,0 +1,143 @@
+<form>
+
+  <div class="topBar">
+    <div class="LoggedInAs">
+      <p>Logged in as: XXX</p>
+    </div>
+    <div class="Logout">
+      <p routerLink="/" (click)="logout()">Logout</p>
+    </div>
+  </div>
+  <div class="menu">
+      <ul>
+        <li><a routerLink="/Home">Home</a></li>
+        <li><a routerLink="/Computers">Computers</a></li> 
+        <li><a routerLink="/Groups">Groups</a></li>
+        <li class="selected"><a routerLink="/Configs">Configs</a></li>
+        <li><a routerLink="/Reports">Reports</a></li>
+        <li><a routerLink="/Admins">Admins</a></li>
+      </ul>
+    </div>
+    
+  
+    <div class="content">
+  
+        <div class="EditLabel">
+            Config1 Edit
+        </div>
+  
+        <table class="table table-borderless">
+            <caption>Destinations</caption>
+            <div class="table-container">
+            <tr *ngFor="let destination of destinations">
+              <td>{{destination.destinationPath}}</td>
+              <td>
+                <button (click)="deleteDestination(destination.id)"><i class="bi bi-trash3" ></i></button>
+              </td>
+            </tr>
+          </div>
+          </table>
+          
+          <table class="table table-borderless">
+            <caption>Sources</caption>
+            <div class="table-container">
+              <tr *ngFor="let source of sources">
+                <td>{{ source.sourcePath }}</td>
+                <td>
+                  <button (click)="deleteSource(source.id)"><i class="bi bi-trash3"></i></button>
+                </td>
+              </tr>
+              
+            </div>
+          </table>
+  
+          <table class="table table-borderless">
+            <caption>Computers</caption>
+            <div class="table-container">
+            <tr *ngFor="let computer of computers">
+              <td>{{computer.computerName}}</td>
+            </tr>
+          </div>
+          </table>
+          
+  
+      <div class="ConfigName">
+        Config Name:
+        <input type="text" name="Config_Name" #ConfigName value="{{config.configName}}">
+      </div>
+  
+      <div class="AddComputerBlock">
+      <select name="AddComputer" class="AddComputer" [(ngModel)]="allComputers">
+        <option *ngFor="let item for allComputers" [value]="item.id">{{item.computerName}}</option>
+      </select>
+  
+      <div class="AddCmpButton">
+        <button type="button" class="btn btn-success">Add computer</button>
+      </div>
+      
+    </div>
+  
+    <div class="AddSrcDst" style="display: flex; align-items: center;">
+      <input type="text" name="Source_Name" #Source style="flex: 1;">
+      <div class="addSrcButton">
+        <button type="button" class="btn btn-success " (click)="addSourceToList(Source.value)">Add Source</button>
+      </div>
+    
+      <input type="text" name="Destination_Name" #Destination style="flex: 1;">
+      <div class="addDstButton">
+        <button type="button" class="btn btn-success" (click)="addDestinationToList(Destination.value)">Add destination</button>
+      </div>
+    </div>
+  
+    <div class="AlgorithmBlock">
+      <h3>Algorithm:</h3>
+    
+      <button [ngClass]="{'btn btn-secondary Full': true, 'selected': config.algorithm === 'Full'}" (click)="setActiveAlgorithm('Full')">Full</button>
+      <button [ngClass]="{'btn btn-secondary Differential': true, 'selected': config.algorithm === 'Differential'}" (click)="setActiveAlgorithm('Differential')">Differential</button>
+      <button [ngClass]="{'btn btn-secondary Incremental': true, 'selected': config.algorithm === 'Incremental'}" (click)="setActiveAlgorithm('Incremental')">Incremental</button>
+    
+      <div class="HH">
+        <h3>Package configuration:</h3>
+        <h3>Format:</h3>
+      </div>
+    
+      <div class="Amnt">
+        <p>Amount of packages: <input type="number" name="AmountOfPackages" #PackageAmount [(ngModel)]="config.maxPackageAmount"></p>
+      
+        <button [ngClass]="{'btn btn-secondary Plain': true, 'selected': config.zip === false}" (click)="setActiveFormat(false)" type="button">Plain</button>
+      
+        <p>Package size: <input type="number" name="PackageSize" #PackageSize [(ngModel)]="config.maxPackageSize"></p>
+      
+        <div class="bruh">
+          <button [ngClass]="{'btn btn-secondary Zip': true, 'selected': config.zip === true}" (click)="setActiveFormat(true)" type="button">Zip</button>
+        </div>
+
+      </div>      
+    </div>
+  
+    <div class="Schedule">
+        <h3>Schedule:</h3>
+  
+        <button type="button" class="btn btn-secondary Simple selected">Simple</button>
+        <button type="button" class="btn btn-secondary Advanced">Advanced</button>
+  
+        <div class="HHH">
+        <h3>Every: </h3>
+        
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * MON')">Mon</button>
+        <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * SUN')">Tue</button>
+        <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * WED')">Wed</button>
+        <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * THU')">Thu</button>
+        <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * FRI')">Fri</button>
+        <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * SAT')">Sat</button>
+        <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * SUN')">Sun</button>
+      </div>
+
+      <div class="Changes">
+        <button type="button" class="btn btn-success" (click)="submit(ConfigName.value, parseInt(PackageAmount.value), parseInt(PackageSize.value))">Save Changes</button>
+        </div>
+    </div>
+    </div>
+  

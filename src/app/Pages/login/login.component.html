@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Admin Login</title>
+        <link rel="stylesheet" href="login.component.scss">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+    </head>
+    <body>        
+        <section>            
+            <div class="form-box">
+                <div class="form-value">                    
+                    <h2>Admin Login</h2>
+                    <div class="inputbox">
+                        <input type="username" required placeholder="Username" [(ngModel)]="username">
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" required placeholder="Password" [(ngModel)]="password">
+                    </div>
+                    <button (click)="login()">Login</button>
+                    <div class="alert alert-danger" *ngIf="error">Neplatné jméno nebo heslo</div>
+                </div>
+                                 
+            </div>          
+        </section>   
+          
+    </body>
+</html>

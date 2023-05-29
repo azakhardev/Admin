@@ -1,0 +1,101 @@
+<div class="topBar">
+  <div class="LoggedInAs">
+    <p>Logged in as: XXX</p>
+  </div>
+  <div class="Logout">
+    <p routerLink="/" (click)="logout()">Logout</p>
+  </div>
+</div>  
+  <div class="menu">
+      <ul>
+        <li><a routerLink="/Home">Home</a></li>
+        <li class="selected"><a routerLink="/Computers">Computers</a></li> 
+        <li><a routerLink="/Groups">Groups</a></li>
+        <li><a routerLink="/Configs">Configs</a></li>
+        <li><a routerLink="/Reports">Reports</a></li>
+        <li><a routerLink="/Admins">Admins</a></li>
+        
+      </ul>
+    </div>
+  <div class="content">
+    <div class="ComputerEditLabel">
+      {{computer.computerName}} Edit
+  </div>
+    <div class="Table2">
+      <div class="table2-responsive">
+        <table class="table-rounded table" bgColor="black">
+          <thead>
+              <tr>
+                  <th>Remove</th>
+                  <th>Configs</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let config of configs">
+              <button type="button" class="btn btn-link" (click)="deleteConfigFromComputer(config)">
+                <i class="bi bi-trash3"></i>
+            </button>
+              <td>{{ config.configName }}</td>
+            </tr>
+          </tbody>                  
+        </table>
+      </div>        
+  </div>
+  
+  <div class="ComputerName">
+    Name:
+    <input type="text" name="Computer_Name" #ComputerName [ngModel]="this.computer.computerName">
+  </div>
+
+  <div class="Groups">
+    <p>Groups:</p>
+    <div class="GroupsTable">
+        <table class="Groups_table">
+          <tr *ngFor="let group of computerGroups">
+            <button type="button" class="btn btn-link" (click)="removeGroupFromComputer(group)">
+              <i class="bi bi-trash3"></i>
+          </button>
+            <td>{{group.groupName}}</td>
+          </tr>
+        </table>
+    </div>
+    <div class="AddGroupBlock">
+      <select name="AddGroup" class="AddGroup" [(ngModel)]="selectedGroup">
+        <option *ngFor="let group of allGroups" [value]="group.id">{{group.groupName}}</option>
+      </select>
+
+      <button type="button" class="btn btn-success" (click)="addGroupToComputer()">Add group</button>
+    </div>
+  </div>
+
+  <div class="Blocked">
+    <p>Blocked: </p>
+    <select [(ngModel)]="this.computer.computerStatus" (change)="updateComputer()">
+      <option [ngValue]="'Blocked'" [selected]="this.computer.computerStatus === 'Blocked'">Blocked</option>
+      <option [ngValue]="'Authrized'" [selected]="this.computer.computerStatus === 'Authrized'">Authrized</option>
+    </select>
+  </div>  
+
+  <div class="Configs">
+  <div class="AddConfigsTable">
+    <p>Choose config:</p>
+    
+    <select name="ConfigSelect" class="ConfigSelect" [(ngModel)]="selectedConfig">
+      <option *ngFor="let all_config of configs" [value]="all_config.id">{{all_config.configName}}</option>
+    </select>
+    
+    
+</div>
+<button type="button" class="btn btn-success" (click)="addConfigToComputer()">Add Config</button>
+<button type="button" class="btn btn-success" routerLink="/Configs/NewConfig">New Config</button>
+</div>
+
+<div class="Description">
+Description: 
+<input type="text" name="Description" #Description value={{computer.description}}>
+</div>
+
+<div class="Changes">
+<button type="button" class="btn btn-success" (click)="saveChanges(ComputerName.value,Description.value)">Save Changes</button>
+</div>
+    </div>

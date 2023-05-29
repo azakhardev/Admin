@@ -1,0 +1,32 @@
+<div class="table-responsive">
+    <div class="Table">
+      <table class="table-rounded table" bgColor="black">
+          <thead>                
+              <tr>
+                  <th>Remove</th>
+                  <th>Name<i class="bi bi-funnel"></i></th>
+                  <th>Status<i class="bi bi-funnel"></i></th>
+                  <th>Last Backup<i class="bi bi-funnel"></i></th>
+                  <th>Group<i class="bi bi-funnel"></i></th>
+                  <th>Config<i class="bi bi-funnel"></i></th>
+                  <th>Backup Status<i class="bi bi-funnel"></i></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of computer">
+                  <td>
+                  <button type="button" class="btn btn-link" (click)="delete(item)">
+                      <i class="bi bi-trash3"></i>
+                  </button>
+                  </td>
+                  <td><a [routerLink]="['/Computers',item.id]">{{item.id}}</a></td>
+                  <td>{{item.computerStatus}}</td>
+                  <td>{{item.lastBackup}}</td>
+                  <td>Group1, Group 5</td>
+                  <td>Config1</td>
+                  <td>{{item.backupStatus}}</td>
+                </tr>
+          </tbody>                  
+        </table>
+  </div>
+  </div> 

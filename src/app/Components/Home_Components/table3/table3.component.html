@@ -1,0 +1,10 @@
+<table class="table table-borderless">
+    <caption>Waiting for accept</caption>
+    <div class="table-container">
+    <tr *ngFor="let item of unauthorizedComputers">
+      <td>{{item.computerName}}</td>
+        <td><button type="button" class="btn btn-link" (click)="setComputerAuthorized(item)"><i class="bi-lg bi-check"></i></button></td>
+        <td><button type="button" class="btn btn-link" (click)="setComputerBlocked(item)"><i class="bi-lg bi-x"></i></button></td>
+    </tr>
+  </div>
+  </table>
