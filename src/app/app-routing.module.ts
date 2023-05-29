@@ -45,32 +45,17 @@ const routes: Routes = [
     component: AdminsComponent, canActivate: [AuthService]
   },
   {
-    path:"Computers/Computer1",
-    component: ComputerInfoComponent, canActivate: [AuthService]
-  },
-  {
     path:"NewGroup",
     component: NewGroupComponent, canActivate: [AuthService]
   },
   {
-    path:"Groups/Group1",
-    component: GroupEditComponent, canActivate: [AuthService]
-  },
-  {
-    path:"Configs/NewConfig",
+    path:"NewConfig",
     component: NewConfigComponent, canActivate: [AuthService]
-  },
-  {
-    path:"Configs/Config1",
-    component: ConfigEditComponent, canActivate: [AuthService]
-  },
-  {
-    path:"Admins/Admin1",
-    component: AdminConfigComponent, canActivate: [AuthService]
   },
   { path: 'Admins/:Id', component: AdminConfigComponent, canActivate: [AuthService] },
   { path: 'Computers/:Id', component: ComputerInfoComponent, canActivate: [AuthService]  },
-  {path: 'Configs/:Id', component: ConfigEditComponent, canActivate: [AuthService]  }
+  { path: 'Configs/:Id', component: ConfigEditComponent, canActivate: [AuthService]  },
+  { path: 'Groups/:Id', component:GroupEditComponent, canActivate:[AuthService] }
 ];
 
 @NgModule({

@@ -8,7 +8,6 @@ import { Destination } from 'src/app/models/destination';
 import { Computer } from 'src/app/models/computer';
 import { SourceToPost } from 'src/app/models/source-to-post';
 import { ConfigsService } from 'src/app/services/configs.service';
-import { ObjectUnsubscribedError, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-new-config',
@@ -99,9 +98,7 @@ export class NewConfigComponent implements OnInit {
     this.config.maxPackageAmount = maxPackageAmount;
     this.config.maxPackageSize = maxPackageSize;
     
-    this.configService.postConfig(this.config).subscribe()
-    
-    this.pushSourcesDestinations();
+    this.configService.postConfig(this.config).subscribe(x => {this.pushSourcesDestinations()})   
 
     this.router.navigate(['/Configs'])
   }

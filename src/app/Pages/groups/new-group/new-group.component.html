@@ -1,226 +1,69 @@
 <div class="topBar">
-    <div class="LoggedInAs">
-      <p>Logged in as: XXX</p>
-    </div>
-    <div class="Logout">
-      <p routerLink="/">Logout</p>
-    </div>
+  <div class="LoggedInAs">
+    <p>Logged in as: XXX</p>
   </div>
-  <div class="menu">
-      <ul>
-        <li><a routerLink="/Home">Home</a></li>
-        <li><a routerLink="/Computers">Computers</a></li> 
-        <li class="selected"><a routerLink="/Groups">Groups</a></li>
-        <li><a routerLink="/Configs">Configs</a></li>
-        <li><a routerLink="/Reports">Reports</a></li>
-        <li><a routerLink="/Admins">Admins</a></li>
-  
-      </ul>
-    </div>
+  <div class="Logout">
+    <p routerLink="/" (click)="logout()">Logout</p>
+  </div>
+</div>
+<div class="menu">
+    <ul>
+      <li><a routerLink="/Home">Home</a></li>
+      <li><a routerLink="/Computers">Computers</a></li> 
+      <li class="selected"><a routerLink="/Groups">Groups</a></li>
+      <li><a routerLink="/Configs">Configs</a></li>
+      <li><a routerLink="/Reports">Reports</a></li>
+      <li><a routerLink="/Admins">Admins</a></li>  
+    </ul>
+  </div>
 
-    
+  <div class="content">
 
-    <div class="content">
+      <div class="EditLabel">
+          {{group.groupName}}
+      </div>
 
-        <div class="NewGroupLabel">
-            New Group
+      <table class="table table-borderless">
+          <caption>Configs</caption>
+          <div class="table-container" *ngFor="let item of configs">
+            <tr>
+              <td>{{item.configName}}</td>
+            </tr>
         </div>
-
+      </table>
+        
         <table class="table table-borderless">
-            <caption>Configs</caption>
-            <div class="table-container">
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-          </div>
-          </table>
-          
-          <table class="table table-borderless">
-            <caption>Computers in group</caption>
-            <div class="table-container">
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-            <tr>
-              <td>...</td>
-            </tr>
-          </div>
-          </table>
-          
-
-      <div class="GroupName">
-        Group Name:
-        <input type="text" name="Group_Name" value="">
-      </div>
-
-      <div class="AddConfigBlock">
-        <select name="AddConfig" class="AddConfig">
-          <option value="Config1">Config1</option>
-          <option value="Config2">Config2</option>
-          <option value="Config3">Config3</option>
-          <option value="Config4">Config4</option>
-          <option value="Config5">Config5</option>
-          <option value="Config6">Config6</option>
-        </select>
-        
-        <div class="firstButton">
-        <button type="button" class="btn btn-success">Add config</button>
-    </div>
-        <div class="secondButton">
-        <button type="button" class="btn btn-success">New config</button>
-    </div>
-      </div>
-
-      <div class="AddComputerBlock">
-      <select name="AddComputer" class="AddComputer">
-        <option value="Computer1">Computer1</option>
-        <option value="Computer2">Computer2</option>
-        <option value="Computer3">Computer3</option>
-        <option value="Computer4">Computer4</option>
-        <option value="Computer5">Computer5</option>
-        <option value="Computer6">Computer6</option>
-      </select>
-
-      <button type="button" class="btn btn-success">Add computer</button>
-    </div>
-
-    <div class="AlgorithmBlock">
-        <h3>Algorithm:</h3>
-
-        <button type="button" class="btn btn-secondary Full selected">Full</button>
-        <button type="button" class="btn btn-secondary Differential">Differential</button>
-        <button type="button" class="btn btn-secondary Incremental">Incremental</button>
-
-        <div class="HH">
-        <h3>Package configuration: </h3>
-        <h3>Format: </h3>
-    </div>
-        <div class="Amnt">
-        <p>Amount of packages: <input type="number" name="AmountOfPackages" value="0" min="0"></p>
-        <button type="button" class="btn btn-secondary Plain">Plain</button>
-    
-        <p>Package pieces: <input type="number" name="AmountOfPackages" value="0" min="0"></p>
-        <button type="button" class="btn btn-secondary Zip selected">Zip</button>
+          <caption>Computers in group</caption>
+          <div class="table-container" *ngFor="let item of computers">
+          <tr>
+            <td>{{item.computerName}}</td>
+          </tr>
         </div>
+        </table>
         
+
+    <div class="GroupName">
+      Group Name:
+      <input type="text" name="Group_Name" value="{{group.groupName}}">
     </div>
 
-    <div class="Schedule">
-        <h3>Schedule:</h3>
-
-        <button type="button" class="btn btn-secondary Simple selected">Simple</button>
-        <button type="button" class="btn btn-secondary Advanced">Advanced</button>
-
-        <div class="HHH">
-        <h3>Every: </h3>
-        
-      </div>
-      <div class="buttons">
-        <button type="button" class="btn btn-secondary week">Mon</button>
-        <button type="button" class="btn btn-secondary week">Tue</button>
-        <button type="button" class="btn btn-secondary week">Wed</button>
-        <button type="button" class="btn btn-secondary week">Thu</button>
-        <button type="button" class="btn btn-secondary week">Fri</button>
-        <button type="button" class="btn btn-secondary week">Sat</button>
-        <button type="button" class="btn btn-secondary week">Sun</button>
-      </div>
+    <div class="AddConfigBlock">
+      <select name="AddConfig" class="AddConfig" #AddConfig>
+        <option *ngFor="let item of unassignedConfigs" #AddConfig [ngValue]="item.configName">{{item.configName}}</option>
+      </select>
       
+      <div class="firstButton">
+      <button type="button" class="btn btn-success" (click)="addConfig(parseInt(AddConfig.id))">Add config</button>
+  </div>
+      <div class="secondButton">
+      <button type="button" class="btn btn-success" routerLink="/NewConfig">New config</button>
+  </div>
     </div>
-    
-    </div>
+
+    <div class="AddComputerBlock">
+    <select name="AddComputer" class="AddComputer"  #AddComputer >
+      <option value="Computer1" *ngFor="let item of unassignedComputers"[ngValue]="item.computerName">{{item.computerName}}</option>
+    </select>
+
+    <button type="button" class="btn btn-success" (click)="addComputer(parseInt(AddComputer.id))">Add computer</button>
+  
