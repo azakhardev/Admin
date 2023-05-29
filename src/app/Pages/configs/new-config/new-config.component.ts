@@ -99,7 +99,7 @@ export class NewConfigComponent implements OnInit {
     this.config.maxPackageAmount = maxPackageAmount;
     this.config.maxPackageSize = maxPackageSize;
     
-    this.configService.saveChanges(this.config).subscribe()
+    this.configService.postConfig(this.config).subscribe()
     
     this.pushSourcesDestinations();
 

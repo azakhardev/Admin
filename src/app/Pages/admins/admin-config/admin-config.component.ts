@@ -47,10 +47,11 @@ export class AdminConfigComponent implements OnInit {
     })
   }
 
-  public saveAdmin(values: any): void {
+  public saveAdmin(values: any, password: string): void {
     /*this.user.name = values.name;
     this.user.surname = values.surname;
     this.user.email = values.email;*/
+    this.admin.password = password;
 
     Object.assign(this.admin, values);
     this.adminsService.updateAdmin(this.admin).subscribe(() => this.router.navigate([ '/Admins' ]));

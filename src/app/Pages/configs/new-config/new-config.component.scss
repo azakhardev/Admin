@@ -15,7 +15,7 @@
     text-align: left;
     padding-top: 5%;
 }
-compu
+
 .Logout p{
     margin: 0;
     display: inline-block;
@@ -24,8 +24,6 @@ compu
     padding-left: 3100%;
     cursor: pointer;
 }
-
-
 .menu{
     background-color: #D9D9D9;
     top: 0;
@@ -180,7 +178,9 @@ table i{
 }
 
 .AlgorithmBlock h3:nth-of-type(1){
+    margin-left: 25px;
     text-align: center;
+    font-size: x-large;
     width: 100%;
     font-weight: 600;
 }
@@ -236,15 +236,23 @@ table i{
 
 .HH h3{
     display: inline-block;
+    font-size: large;
+    font-size: small;
 }
 
+.HH h3:nth-of-type(1){
+    margin-left: 50px;
+    font-weight: 600;
+    font-size: large;
+}
 .HH h3:nth-of-type(2){
     margin-left: 230px;
     font-weight: 600;
+    font-size: large;
 }
 
 .Amnt button{
-    margin-left: 260px;
+    margin-left: 120px;
 }
 
 .Amnt p{
@@ -265,9 +273,9 @@ table i{
 }
 
 .Zip{
-    margin-left: 25px;
     width: 300px;
     background-color: #D9D9D9;
+    margin-right: -120px;
     color: black;
     font-weight: 600;
     border: 2px solid black;
@@ -280,44 +288,47 @@ table i{
 
 .Schedule{
     margin-left: 1028px;
-    margin-top: -300px;
+    margin-top: -325px;
     height: 300px;
 }
 
 .Schedule h3:nth-of-type(1){
     text-align: center;
     width: 100%;
+    font-size: x-large;
     font-weight: 600;
 }
 
-.Simple{
-    margin-left: 125px;
+.ScheduleInput
+{
     width: 300px;
-    color: black;
-    font-weight: 600;
-    border: 2px solid black;
+    padding: 5px;
+    margin-left: 130px;    
 }
 
-.Advanced{
-    margin-left: 25px;
-    width: 300px;
-    background-color: #D9D9D9;
-    color: black;
+
+.PackageSize
+{
+margin-right: 48px;    
+}
+
+.AdvancedSchedule{
+    margin-left: 75px;
     font-weight: 600;
-    border: 2px solid black;
+    font-size: large;
 }
 
 .HHH h3:nth-of-type(1){
-    font-weight: 600;
     width: fit-content;
-    margin-left: 125px;
+    margin-left: 105px;
     display: inline-block;
+    font-size: large;
     margin-top: 20px;
 }
 
 .buttons{
-    float: right;
     margin-top: -40px;
+    margin-left: 135px;
     width: 650px;
 }
 

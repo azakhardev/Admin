@@ -15,7 +15,7 @@
     text-align: left;
     padding-top: 5%;
 }
-compu
+
 .Logout p{
     margin: 0;
     display: inline-block;
@@ -24,8 +24,6 @@ compu
     padding-left: 3100%;
     cursor: pointer;
 }
-
-
 .menu{
     background-color: #D9D9D9;
     top: 0;
@@ -277,6 +275,7 @@ table i{
 .Zip{
     width: 300px;
     background-color: #D9D9D9;
+    margin-right: -120px;
     color: black;
     font-weight: 600;
     border: 2px solid black;
@@ -304,30 +303,18 @@ table i{
 {
     width: 300px;
     padding: 5px;
-    margin-left: 275px;    
+    margin-left: 130px;    
 }
 
-/*
-.Simple{
-    margin-left: 360px;
-    font-size: large;
-    text-align: center;
-    width: 150px;
-    padding: 5px;
-    color: black;
-    background-color: #D9D9D9;
-    font-weight: 600;
-    border: 1px solid black;
-}
-*/
 
-.Advanced{
-    margin-left: 25px;
-    width: 300px;
-    background-color: #D9D9D9;
-    color: black;
+.PackageSize
+{
+margin-right: 48px;    
+}
+
+.AdvancedSchedule{
+    margin-left: 75px;
     font-weight: 600;
-    border: 2px solid black;
     font-size: large;
 }
 

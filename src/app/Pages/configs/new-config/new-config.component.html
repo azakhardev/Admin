@@ -102,29 +102,26 @@
       </div>
     
       <div class="Amnt">
-        <p>Amount of packages: <input type="number" name="AmountOfPackages" #PackageAmount [(ngModel)]="config.maxPackageAmount"></p>
-      
-        <button [ngClass]="{'btn btn-secondary Plain': true, 'selected': config.zip === false}" (click)="setActiveFormat(false)" type="button">Plain</button>
-      
-        <p>Package size: <input type="number" name="PackageSize" #PackageSize [(ngModel)]="config.maxPackageSize"></p>
-      
-        <div class="bruh">
+        <p>Amount of packages: <input type="number" name="AmountOfPackages" #PackageAmount [(ngModel)]="this.config.maxPackageAmount"></p>
+              
+        <button [ngClass]="{'btn btn-secondary Plain': true, 'selected': config.zip === false}" (click)="setActiveFormat(false)" type="button">Plain</button>        
+        
+        <div>
+          <p class = "PackageSize">Package size: <input type="number" name="PackageSize" #PackageSize [(ngModel)]="this.config.maxPackageSize"></p>
+          
           <button [ngClass]="{'btn btn-secondary Zip': true, 'selected': config.zip === true}" (click)="setActiveFormat(true)" type="button">Zip</button>
         </div>
 
       </div>      
     </div>
-  
-    <div class="Schedule">
+
+     <div class="Schedule">
         <h3>Schedule:</h3>
   
-        <button type="button" class="btn btn-secondary Simple selected">Simple</button>
-        <button type="button" class="btn btn-secondary Advanced">Advanced</button>
-  
         <div class="HHH">
-        <h3>Every: </h3>
-        
-      </div>
+          <h3>Simple:</h3>        
+        </div>
+
       <div class="buttons">
         <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * MON')">Mon</button>
         <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * SUN')">Tue</button>
@@ -134,6 +131,12 @@
         <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * SAT')">Sat</button>
         <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * SUN')">Sun</button>
       </div>
+      
+      <h3 class="AdvancedSchedule"> 
+        Advanced: 
+        <input type="text" class = "ScheduleInput" #schedule value="{{config.schedule}}">
+      </h3>
+    
 
       <div class="Changes">
         <button type="button" class="btn btn-success" (click)="submit(ConfigName.value, parseInt(PackageAmount.value), parseInt(PackageSize.value))">Save Changes</button>

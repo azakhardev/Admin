@@ -106,9 +106,9 @@
               
         <button [ngClass]="{'btn btn-secondary Plain': true, 'selected': activeFormat === 'Plain'}" (click)="setActiveFormat('Plain')" type="button">Plain</button>        
         
-        <p>Package size: <input type="number" name="PackageSize" #PackageSize [(ngModel)]="packageSize"></p>
-
-        <div class="bruh">
+        <div>
+          <p class = "PackageSize">Package size: <input type="number" name="PackageSize" #PackageSize [(ngModel)]="packageSize"></p>
+          
           <button [ngClass]="{'btn btn-secondary Zip': true, 'selected': activeFormat === 'Zip'}" (click)="setActiveFormat('Zip')" type="button">Zip</button>
         </div>
 
@@ -132,8 +132,10 @@
         <button type="button" class="btn btn-secondary week" (click)="setSchedule('0 0 * * SUN')">Sun</button>
       </div>
       
-      <h3 class="HHH">Advanced:</h3>
-      <input type="text" class = "ScheduleInput" #schedule value="{{config.schedule}}">
+      <h3 class="AdvancedSchedule"> 
+        Advanced: 
+        <input type="text" class = "ScheduleInput" #schedule value="{{config.schedule}}">
+      </h3>
     
       <div class="Changes">
         <button type="button" class="btn btn-success" (click)="submit(ConfigName.value, parseInt(PackageAmount.value), parseInt(PackageSize.value), this.schedule.value)">Save Changes</button>

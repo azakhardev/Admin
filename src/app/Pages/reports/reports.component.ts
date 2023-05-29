@@ -15,8 +15,6 @@ export class ReportsComponent implements OnInit{
 
   reports: Report[] = [];
   report: Report
-  computers: Computer[] = [];
-
   name: string = ''
 
   constructor( private sessionsService: SessionsService, private reportsService: ReportsService, private computerService: ComputersService) {
@@ -33,10 +31,12 @@ export class ReportsComponent implements OnInit{
     
   }
 
-  public getComputerName(id: number): string{
-    // this.computerService.getComputerNameById(id).subscribe(result => this.computer = result);
-    // return this.computer.computerName
+  sendEmail()
+  {
 
+  }
+
+  public getComputerName(id: number): string{
     this.computerService.getComputerNameById(id).subscribe(data => {
       this.name = data
     });

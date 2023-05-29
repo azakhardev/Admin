@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, retry } from 'rxjs';
 import { Config } from '../models/config';
 import { Source } from '../models/source';
 import { ComputersConfigs } from '../models/computersConfigs';
@@ -76,5 +76,10 @@ export class ConfigsService {
   public saveChanges(config: Config): Observable<Config>
   {
    return this.http.put<Config>('https://localhost:7140/api/Configs/' + config.id, config); 
+  }
+
+  public postConfig(newConfig: Config): Observable<Config>
+  {
+    return this.http.post<Config>('https://localhost:7140/api/Configs/',newConfig);
   }
 }

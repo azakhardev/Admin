@@ -31,7 +31,7 @@
           </div>
           <div class="Password">
             <p>Password:</p>
-            <input type="password" name="Password_inputbox" [value]="password">
+            <input type="password" name="Password_inputbox" #NewPassword>
           </div>
           <div class="Email">
             <p>Email:</p>
@@ -68,7 +68,7 @@
 
     <div class="Changes">
       <button type="button" class="btn btn-danger">Discard Changes</button>
-      <button type="button" class="btn btn-success" (click)="saveAdmin($event)">Save Changes</button>
+      <button type="button" class="btn btn-success" (click)="saveAdmin($event, NewPassword.value)">Save Changes</button>
     </div>
     </div>
     
