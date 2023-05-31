@@ -88,16 +88,25 @@
     border-collapse: collapse; 
     border-radius: 15px;
     overflow: hidden;
+    height: 500px;
 }
 
 .table-addComputer
 {
     width: 30%;
-    top: 700px;
-    left: 384px;
+    max-height: 300px;
     border-collapse: collapse;
-    overflow: hidden;
-    position: fixed;
+    overflow-y: auto;
+    margin-left: -100px;
+    tr
+    {
+        background-color: #4B93FF;
+        padding: 15px;
+    }
+    td
+    {
+        text-align: left;        
+    }
 }
 
 caption{

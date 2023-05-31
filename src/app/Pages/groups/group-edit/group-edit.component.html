@@ -51,14 +51,14 @@
             </thead>
             <tbody  *ngFor="let item of unassignedComputers">
                 <td>
-                  <button type="button" class="btn btn-link" >
+                  <button type="button" class="btn btn-link button" >
                       <i class="bi bi-plus-circle" (click)="addComputer(item.id)"></i>
                   </button>
                 </td>
                 <td>{{item.computerName}}</td>
             </tbody>
         </table>
-
+        
     <div class="GroupName">
       Group Name:
       <input type="text" name="Group_Name" value="{{group.groupName}}">
