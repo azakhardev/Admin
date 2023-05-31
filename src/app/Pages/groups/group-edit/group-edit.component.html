@@ -8,63 +8,58 @@
     </div>
   </div>
   <div class="menu">
-      <ul>
-        <li><a routerLink="/Home">Home</a></li>
-        <li><a routerLink="/Computers">Computers</a></li> 
-        <li class="selected"><a routerLink="/Groups">Groups</a></li>
-        <li><a routerLink="/Configs">Configs</a></li>
-        <li><a routerLink="/Reports">Reports</a></li>
-        <li><a routerLink="/Admins">Admins</a></li>  
-      </ul>
-    </div>
+    <ul>
+      <li><a routerLink="/Home">Home</a></li>
+      <li><a routerLink="/Computers">Computers</a></li> 
+      <li class="selected"><a routerLink="/Groups">Groups</a></li>
+      <li><a routerLink="/Configs">Configs</a></li>
+      <li><a routerLink="/Reports">Reports</a></li>
+      <li><a routerLink="/Admins">Admins</a></li>
+    </ul>
+  </div>
 
-    <div class="content">
+  <div class="content">
 
-        <div class="EditLabel">
-            {{group.groupName}}
+      <div class="EditLabel">
+          {{group.groupName}}
+      </div>
+
+      <table class="table table-borderless">
+          <caption>Configs</caption>
+          <div class="table-container" *ngFor="let item of configs">
+            <tr>
+              <td>{{item.configName}}</td>
+            </tr>
         </div>
+      </table>
 
         <table class="table table-borderless">
-            <caption>Configs</caption>
-            <div class="table-container" *ngFor="let item of configs">
-              <tr>
-                <td>{{item.configName}}</td>
-              </tr>
-          </div>
+          <caption>Computers in group</caption>
+          <div *ngFor="let item of computers">
+          <tr>
+            <td>{{item.computerName}}</td>
+          </tr>
+        </div>
         </table>
-          
-          <table class="table table-borderless">
-            <caption>Computers in group</caption>
-            <div class="table-container" *ngFor="let item of computers">
-            <tr>
-              <td>{{item.computerName}}</td>
-            </tr>
-          </div>
-          </table>
-          
 
-      <div class="GroupName">
-        Group Name:
-        <input type="text" name="Group_Name" value="{{group.groupName}}">
-      </div>
+        <table class="table-addComputer table-borderless" >
+            <thead class="caption">
+              <tr>
+                <th>Add</th>
+                <th>Computer Name</th>
+              </tr>
+            </thead>
+            <tbody  *ngFor="let item of unassignedComputers">
+                <td>
+                  <button type="button" class="btn btn-link" >
+                      <i class="bi bi-plus-circle" (click)="addComputer(item.id)"></i>
+                  </button>
+                </td>
+                <td>{{item.computerName}}</td>
+            </tbody>
+        </table>
 
-      <div class="AddConfigBlock">
-        <select name="AddConfig" class="AddConfig" [(ngModel)]="selectedConfig">
-          <option value="Config"*ngFor="let item of unassignedConfigs" [ngValue]="selectedConfig">{{item.configName}}</option>
-        </select>
-        
-        <div class="firstButton">
-        <button type="button" class="btn btn-success" (click)="addConfig(selectedConfig.id)">Add config</button>
+    <div class="GroupName">
+      Group Name:
+      <input type="text" name="Group_Name" value="{{group.groupName}}">
     </div>
-        <div class="secondButton">
-        <button type="button" class="btn btn-success" routerLink="/NewConfig">New config</button>
-    </div>
-      </div>
-
-      <div class="AddComputerBlock">
-      <select name="AddComputer" class="AddComputer" [(ngModel)]="selectedComputer" >
-        <option value="Computer" *ngFor="let item of unassignedComputers" [ngValue]="selectedComputer">{{item.computerName}}</option>
-        
-      </select>
-
-      <button type="button" class="btn btn-success" (click)="addComputer(selectedComputer.id)">Add computer</button>

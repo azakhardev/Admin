@@ -36,7 +36,7 @@ export class NewConfigComponent implements OnInit {
   ngOnInit(): void {
    this.config = new Config(0,'New_Config',new Date(),'Full','* * * * *',false,1,1,[])
    this.http.get<Computer[]>('https://localhost:7140/api/Computers').subscribe(x => this.allComputers = x);
-   this.http.get<number>('https://localhost:7140/api/Configs/LastCofnig').subscribe(x => this.config.id = x+1)
+   this.http.get<number>('https://localhost:7140/api/Configs/LastConfig').subscribe(x => this.config.id = x+1)
   
   }
 
@@ -63,7 +63,6 @@ export class NewConfigComponent implements OnInit {
   {
     this.destination = new Destination(0,this.config.id, destination)
     this.destinations.push(new Destination(0,this.config.id,destination))
-    //this.configService.postDestination(this.destination).subscribe(()=>this.ngOnInit())
   }
 
   deleteSource(id: number)
@@ -80,18 +79,7 @@ export class NewConfigComponent implements OnInit {
   {
     this.config.schedule = schedule;
   }
-
-  /*
-  addComputerToConfig(computer: Computer)
-  {
-    return this.configService.addComputer(computer.id,this.config.id)
-  }
-
-  deleteComputerFromConfig(id: number)
-  {
-    return this.configService.deleteComputer(id,this.config.id)
-  }
-  */
+  
   submit(name: string, maxPackageAmount: number, maxPackageSize: number)
   {
     this.config.configName = name;

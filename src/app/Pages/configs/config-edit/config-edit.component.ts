@@ -106,22 +106,26 @@ export class ConfigEditComponent implements OnInit {
   {
     this.source = new SourceToPost(this.configId, source)
     this.configService.postSource(this.source).subscribe(()=>this.ngOnInit())    
+    window.location.reload()
   }
 
   addDestination(destination: string)
   {
     this.destination = new Destination(0,this.configId, destination)
     this.configService.postDestination(this.destination).subscribe(()=>this.ngOnInit())
+    window.location.reload()
   }
 
   deleteSource(id: number)
   {
     this.configService.deleteSource(id).subscribe(()=>this.ngOnInit())
+    window.location.reload()
   }
 
   deleteDestination(id: number)
   {
     this.configService.deleteDestination(id).subscribe(()=>this.ngOnInit())
+    window.location.reload()
   }
 
   submit(name: string, maxPackageAmount: number, maxPackageSize: number, schedule: string)

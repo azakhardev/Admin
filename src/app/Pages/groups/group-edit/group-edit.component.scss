@@ -81,6 +81,33 @@
     width: 100%;
 }
 */
+.table{
+    width: 30%;
+    margin-top: 1%;
+    margin-right: 10%;
+    border-collapse: collapse; 
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table-addComputer
+{
+    width: 30%;
+    top: 700px;
+    left: 384px;
+    border-collapse: collapse;
+    overflow: hidden;
+    position: fixed;
+}
+
+caption{
+    caption-side: top;
+    text-align: middle;
+    padding-left: 10px;
+    background-color: #4B93FF;
+    color: black;
+    font-size: larger;
+}
 
 
 .GroupName{
