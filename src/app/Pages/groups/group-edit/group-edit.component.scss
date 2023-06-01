@@ -109,6 +109,25 @@
     }
 }
 
+.table-addConfig
+{
+    width: 30%;
+    max-height: 300px;
+    margin-left: 300px;
+    border-collapse: collapse;
+    overflow-y: auto;
+    margin-left: -100px;
+    tr
+    {
+        background-color: #4B93FF;
+        padding: 15px;
+    }
+    td
+    {
+        text-align: left;        
+    }
+}
+
 caption{
     caption-side: top;
     text-align: middle;

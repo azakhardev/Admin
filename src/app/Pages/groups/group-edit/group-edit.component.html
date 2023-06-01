@@ -24,6 +24,11 @@
           {{group.groupName}}
       </div>
 
+      <div class="GroupName">
+        Group Name:
+        <input type="text" name="Group_Name" value="{{group.groupName}}">
+      </div>
+
       <table class="table table-borderless">
           <caption>Configs</caption>
           <div class="table-container" *ngFor="let item of configs">
@@ -58,8 +63,22 @@
                 <td>{{item.computerName}}</td>
             </tbody>
         </table>
+
+        <table class="table-addConfig table-borderless" >
+          <thead class="caption">
+            <tr>
+              <th>Add</th>
+              <th>Config Name</th>
+            </tr>
+          </thead>
+          <tbody  *ngFor="let item of unassignedConfigs">
+              <td>
+                <button type="button" class="btn btn-link button" >
+                    <i class="bi bi-plus-circle" (click)="addConfig(item.id)"></i>
+                </button>
+              </td>
+              <td>{{item.configName}}</td>
+          </tbody>
+      </table>
         
-    <div class="GroupName">
-      Group Name:
-      <input type="text" name="Group_Name" value="{{group.groupName}}">
-    </div>
+

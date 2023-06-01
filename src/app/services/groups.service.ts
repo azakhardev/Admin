@@ -41,6 +41,6 @@ export class GroupsService {
   }
 
   public addComputerToGroup(computerId: number, groupId: number) {
-    this.http.post('https://localhost:7140/api/ComputersGroups/' + computerId + '/' + groupId,{})
+    this.http.post('https://localhost:7140/api/ComputersGroups/' + computerId + '/' + groupId, window.location.reload())
   }
 }
