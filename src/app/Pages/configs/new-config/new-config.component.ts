@@ -83,8 +83,13 @@ export class NewConfigComponent implements OnInit {
   submit(name: string, maxPackageAmount: number, maxPackageSize: number)
   {
     this.config.configName = name;
+    
+    if (this.config.algorithm == 'Full')
+      this.config.maxPackageSize = 1;
+    else
+      this.config.maxPackageSize = maxPackageSize;
+  
     this.config.maxPackageAmount = maxPackageAmount;
-    this.config.maxPackageSize = maxPackageSize;
     
     this.configService.postConfig(this.config).subscribe(x => {this.pushSourcesDestinations()})   
 

@@ -11,11 +11,17 @@ export class SessionsService {
   constructor(private http: HttpClient) {}
 
   public login(username: string, password: string): Observable<any> {
+    sessionStorage.setItem('username', username);
     return this.http.post<any>('https://localhost:7140/api/AdminLoginCtr', { username: username, password: password }).pipe(
-      tap(result => sessionStorage.setItem('super-secret-foo', result.token))
+    tap(result => sessionStorage.setItem('super-secret-foo', result.token))
     );
-  }
 
+  }
+  
+  public getAdminId(username: string) : Observable<number>
+  {
+    return this.http.get<number>('https://localhost:7140/api/Admins/Id/' + sessionStorage.getItem('username'));    
+  }
   
   public logout(): void {
     sessionStorage.removeItem('super-secret-foo');

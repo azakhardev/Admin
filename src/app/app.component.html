@@ -1,1 +1,9 @@
+<div class="topBar" *ngIf="isAuthenticated()">
+    <div class="LoggedInAs">
+      <p>Logged in as: {{this.username}}</p>
+    </div>
+    <div class="Logout">
+      <p routerLink="/" (click)="logout()">Logout</p>
+    </div>
+</div>
 <router-outlet></router-outlet>

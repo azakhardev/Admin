@@ -131,9 +131,14 @@ export class ConfigEditComponent implements OnInit {
   submit(name: string, maxPackageAmount: number, maxPackageSize: number, schedule: string)
   {
   this.config.configName = name;
-  this.config.maxPackageAmount = maxPackageAmount;
-  this.config.maxPackageSize = maxPackageSize;
   this.config.algorithm = this.activeButton;
+  
+  if (this.config.algorithm == 'Full')
+    this.config.maxPackageSize = 1;
+  else
+    this.config.maxPackageSize = maxPackageSize;
+  
+    this.config.maxPackageAmount = maxPackageAmount;
   this.config.schedule = schedule;
 
   if(this.activeFormat == 'Zip')
@@ -141,7 +146,7 @@ export class ConfigEditComponent implements OnInit {
   else
     {this.config.zip = false}
 
-  this.configService.saveChanges(this.config).subscribe(()=> this.router.navigate(['/Configs']))
+    this.configService.saveChanges(this.config).subscribe(()=> this.router.navigate(['/Configs']))
   }
 
   public readonly parseInt = parseInt;

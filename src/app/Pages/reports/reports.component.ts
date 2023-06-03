@@ -16,7 +16,7 @@ export class ReportsComponent implements OnInit{
   reports: Report[] = [];
   report: Report
   name: string = ''
-
+  adminId: number;
   constructor( private sessionsService: SessionsService, private reportsService: ReportsService, private computerService: ComputersService) {
     this.report = {} as Report;
    }
@@ -33,7 +33,9 @@ export class ReportsComponent implements OnInit{
 
   sendEmail()
   {
-
+    this.sessionsService.getAdminId(sessionStorage.getItem('username')).subscribe(x => this.adminId = x);
+    console.log(this.adminId);
+    this.reportsService.sendEmail(this.adminId).subscribe(() => this.ngOnInit()); 
   }
 
   public getComputerName(id: number): string{

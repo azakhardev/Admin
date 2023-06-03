@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SessionsService } from './services/sessions.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AdminApp';
+  username = sessionStorage.getItem('username');
+  constructor(private sessionsService: SessionsService){}
+  logout() {
+    this.sessionsService.logout();
+  }
+
+  public isAuthenticated(): boolean {
+    return this.sessionsService.isAuthenticated();
+  }
 }
+
+
 
 /**/ 
