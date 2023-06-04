@@ -1,3 +1,4 @@
+
 .topBar{
     width: 100%;
     height: 3%;
@@ -72,15 +73,6 @@
     background-color: #AAAAAA;
 }
 
-/*
-.content{
-    display: block;
-    position: absolute;
-    bottom: 0;
-    height: 89%;
-    width: 100%;
-}
-*/
 .table{
     width: 30%;
     margin-top: 1%;
@@ -160,6 +152,7 @@ caption{
     border-collapse: collapse; 
     border-radius: 15px;
     overflow: hidden;
+    max-height: 400px; 
 }
 
 caption{
@@ -174,6 +167,7 @@ caption{
 .table-container {
   height: 600px;
   overflow: auto;
+  display: flex;
 }
 
 table {
@@ -391,4 +385,114 @@ table i{
     margin-bottom: 40px;
     border: 2px solid black;
     background-color: #D9D9D9;
+}
+
+.bi-trash3 {
+    font-size: 16px !important;
+  }
+
+
+.CONFIGname {
+    margin-left: 1200px;
+  }
+  
+  .CONFIGname table {
+    width: 75%;
+    margin-top: 110px;
+    margin-right: 10%;
+    border-collapse: collapse;
+    border-radius: 15px;
+    overflow: auto; 
+    max-height: 400px; 
+    background-color: #D9D9D9;
+  }
+  
+  .CONFIGname table thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #4B93FF;
+  }
+  
+  .CONFIGname caption {
+    caption-side: top;
+    text-align: left;
+    padding-left: 10px;
+    background-color: #4B93FF;
+    color: black;
+    font-size: larger;
+    font-weight: 600;
+  }
+  
+  .CONFIGname th {
+    background-color: #4B93FF;
+    color: black;
+    font-weight: 600;
+    padding: 10px;
+  }
+  
+  .CONFIGname td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .CONFIGname .btn-link {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .COMPUTERname {
+    margin-left: 500px;
+    margin-top: -490px;
+  }
+  
+  .COMPUTERname table {
+    width: 500px;
+    border-collapse: collapse;
+    overflow: auto; 
+    max-height: 400px; 
+    background-color: #D9D9D9;
+  }
+  
+  .COMPUTERname table thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #4B93FF;
+  }
+  
+  .COMPUTERname caption {
+    text-align: left;
+    padding-left: 10px;
+    background-color: #4B93FF;
+    color: black;
+    font-size: larger;
+  }
+  
+  .COMPUTERname th {
+    background-color: #4B93FF;
+    color: black;
+    font-weight: 600;
+    padding: 10px;
+  }
+  
+  .COMPUTERname td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .COMPUTERname .btn-link {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+ .Changes{
+    width: fit-content;
+    float: right;
+    margin-left: 860px;
+    margin-top: 500px;
 }

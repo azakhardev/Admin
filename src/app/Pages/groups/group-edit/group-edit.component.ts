@@ -4,7 +4,7 @@ import { SessionsService } from 'src/app/services/sessions.service';
 import { Computer } from 'src/app/models/computer';
 import { Group } from 'src/app/models/group';
 import { GroupsService } from 'src/app/services/groups.service';
-import { ActivatedRoute, Route } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -19,12 +19,6 @@ export class GroupEditComponent implements OnInit{
   configs: Config[];
   computers: Computer[];
   
-  selectedComputer: Computer;
-  selectedConfig: Config;
-
-  selectedComputerId: number;
-  selectedConfigId: number;
-
   unassignedConfigs: Config[];
   unassignedComputers: Computer[];
 
@@ -32,7 +26,8 @@ export class GroupEditComponent implements OnInit{
     private sessionsService: SessionsService,
     private groupService: GroupsService,
     private route: ActivatedRoute,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -50,15 +45,34 @@ export class GroupEditComponent implements OnInit{
 
   addComputer(computerId: number)
   {
-    console.log(this.selectedComputer);
-    this.groupService.addComputerToGroup(computerId,this.group.id)
+    this.groupService.addComputerToGroup(computerId,this.group.id).subscribe()
+    window.location.reload()
+  }
+
+  deleteComputer(computerId:number)
+  {
+    this.groupService.deleteComputerFromGroup(computerId,this.group.id).subscribe()
+    window.location.reload()
   }
 
   addConfig(configId: number)
-  {    
-    console.log(this.selectedConfig);
-    this.groupService.addConfigToGroup(this.group.id,configId)
+  {
+    this.groupService.addConfigToGroup(this.group.id,configId).subscribe()
+    window.location.reload()
   }
 
+  deleteConfig(configId: number)
+  {
+    this.groupService.deleteConfigFromGroup(this.group.id,configId).subscribe()
+    window.location.reload()
+  }
+
+submit(groupName: string, description: string)
+{
+  this.group.groupName = groupName;
+  this.group.description = description;
+  this.groupService.putGroup(this.group).subscribe(() => this.router.navigate(['/Groups']))
+
+}
   protected readonly parseInt = parseInt;
 }

@@ -1,3 +1,4 @@
+
 <form>
   <div class="menu">
     <ul>
@@ -18,59 +19,81 @@
 
       <div class="GroupName">
         Group Name:
-        <input type="text" name="Group_Name" value="{{group.groupName}}">
+        <input type="text" name="Group_Name" value="{{group.groupName}}" #GroupName>
       </div>
 
-      <table class="table table-borderless">
-          <caption>Configs</caption>
-          <div class="table-container" *ngFor="let item of configs">
-            <tr>
+      Description:
+      <textarea type="text" name="Group_Desc" value="{{group.description}}" style="height: 200px;" #Description> </textarea>
+      
+      
+
+        <table class="table-container CONFIGS" class="table table-borderless" style="width: 450px; position: absolute; left: 1200px;top: 150px;">
+          <caption>Configs in group</caption>
+          <div *ngFor="let item of configs">
+            <tr>             
+              <button type="button" class="btn btn-link">
+                <i class="bi bi-trash3" (click)="deleteConfig(item.id)"></i>
+              </button>
               <td>{{item.configName}}</td>
             </tr>
-        </div>
-      </table>
+          </div>
+        </table>
 
-        <table class="table table-borderless">
+        <div class="table-container COMPUTERSinGROUP" style="position: absolute; left: 500px;top: 150px;">
+        <table class="table table-borderless" style="width: 450px;">
           <caption>Computers in group</caption>
           <div *ngFor="let item of computers">
           <tr>
+            <button type="button" class="btn btn-link"  (click)="deleteComputer(item.id)">
+              <i class="bi bi-trash3"></i>
+          </button>
             <td>{{item.computerName}}</td>
           </tr>
         </div>
         </table>
+      </div>
 
-        <table class="table-addComputer table-borderless" >
-            <thead class="caption">
-              <tr>
-                <th>Add</th>
-                <th>Computer Name</th>
-              </tr>
-            </thead>
-            <tbody  *ngFor="let item of unassignedComputers">
-                <td>
-                  <button type="button" class="btn btn-link button" >
-                      <i class="bi bi-plus-circle" (click)="addComputer(item.id)"></i>
-                  </button>
-                </td>
-                <td>{{item.computerName}}</td>
-            </tbody>
-        </table>
-
+      <div class="table-container CONFIGname"> 
         <table class="table-addConfig table-borderless" >
           <thead class="caption">
             <tr>
+              <th></th>
+              <th></th>
               <th>Add</th>
               <th>Config Name</th>
             </tr>
           </thead>
           <tbody  *ngFor="let item of unassignedConfigs">
-              <td>
-                <button type="button" class="btn btn-link button" >
-                    <i class="bi bi-plus-circle" (click)="addConfig(item.id)"></i>
-                </button>
-              </td>
-              <td>{{item.configName}}</td>
+            <td></td>
+            <td></td>
+            <td>
+              <button type="button" class="btn btn-link button" >
+                <i class="bi bi-plus-circle" (click)="addConfig(item.id)"></i>
+              </button>
+            </td>
+            <td>{{item.configName}}</td>
           </tbody>
-      </table>
-        
+        </table>
+      </div>
 
+    <div class="table-container COMPUTERname" >
+      <table class="table-addComputer table-borderless" >
+        <thead class="caption">
+          <tr>
+            <th>Add</th>
+            <th>Computer Name</th>
+          </tr>
+        </thead>
+        <tbody  *ngFor="let item of unassignedComputers">
+            <td>
+              <button type="button" class="btn btn-link button" >
+                  <i class="bi bi-plus-circle" (click)="addComputer(item.id)"></i>
+              </button>
+            <td>{{item.computerName}}</td>
+        </tbody>
+    </table>
+
+    <div class="Changes">
+      <button type="button" class="btn btn-success" (click)="submit(GroupName.value, Description.value)">Save Changes</button>
+    </div>
+  </div>

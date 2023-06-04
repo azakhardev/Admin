@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Group } from '../models/group';
 import { Config } from '../models/config';
+import { Computer } from '../models/computer';
 
 @Injectable({
   providedIn: 'root'
@@ -27,20 +28,43 @@ export class GroupsService {
     return this.http.get<Group[]>(url);
   }
 
-  /*
-  public getGroup(groupId: number): Observable<Group>{
-    return this.http.get<Group>('https://localhost:7140/api/Groups/'+groupId )
+  public getConfig(configId: number): Observable<Config>
+  {
+    return this.http.get<Config>('https://localhost:7140/api/Configs/' + configId)
   }
 
-  public getConfigsInGroup(groupId: number): Observable<Config[]> {
-    return this.http.get<Config[]>('https://localhost:7140/api/Groups/'+ groupId + '/Configs')
-  }*/
-
-  public addConfigToGroup(groupId: number, configId: number) {
-    this.http.post('https://localhost:7140/api/GroupsConfigs/' + groupId + '/' + configId, {})
+  public getComputer(computerId: number): Observable<Computer>
+  {
+    return this.http.get<Computer>('https://localhost:7140/api/Computers/' + computerId)
   }
 
-  public addComputerToGroup(computerId: number, groupId: number) {
-    this.http.post('https://localhost:7140/api/ComputersGroups/' + computerId + '/' + groupId, window.location.reload())
+
+  public addConfigToGroup(groupId: number, configId: number) : Observable<string>{
+    return this.http.post<string>('https://localhost:7140/api/GroupsConfigs/' + groupId + '/' + configId, {})
   }
+
+  public deleteConfigFromGroup(groupId: number, configId: number) : Observable<string>
+  {
+    return this.http.delete<string>('https://localhost:7140/api/GroupsConfigs/' + groupId + '/' + configId)
+  }
+
+  public addComputerToGroup(computerId: number, groupId: number) : Observable<string> {
+    return this.http.post<string>('https://localhost:7140/api/ComputersGroups/' + computerId + '/' + groupId, {})
+  }
+  
+  public deleteComputerFromGroup(computerId: number,groupId: number) : Observable<string>
+  {
+    return this.http.delete<string>('https://localhost:7140/api/ComputersGroups/' + computerId + '/' + groupId)
+  }
+
+  public postGroup(group: Group) : Observable<Group>
+  {
+   return this.http.post<Group>('https://localhost:7140/api/Groups', group) 
+  }
+
+  public putGroup(group: Group) : Observable<Group>
+  {
+    return this.http.put<Group>('https://localhost:7140/api/Groups/' + group.id, group) 
+  }
+
 }

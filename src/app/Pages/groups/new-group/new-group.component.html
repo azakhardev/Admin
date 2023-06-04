@@ -1,11 +1,13 @@
-<div class="menu">
+
+<form>
+  <div class="menu">
     <ul>
       <li><a routerLink="/Home">Home</a></li>
       <li><a routerLink="/Computers">Computers</a></li> 
       <li class="selected"><a routerLink="/Groups">Groups</a></li>
       <li><a routerLink="/Configs">Configs</a></li>
       <li><a routerLink="/Reports">Reports</a></li>
-      <li><a routerLink="/Admins">Admins</a></li>  
+      <li><a routerLink="/Admins">Admins</a></li>
     </ul>
   </div>
 
@@ -15,47 +17,83 @@
           {{group.groupName}}
       </div>
 
-      <table class="table table-borderless">
-          <caption>Configs</caption>
-          <div class="table-container" *ngFor="let item of configs">
-            <tr>
+      <div class="GroupName">
+        Group Name:
+        <input type="text" name="Group_Name" value="{{group.groupName}}" #GroupName>
+      </div>
+
+      Description:
+      <textarea type="text" name="Group_Desc" value="{{group.description}}" style="height: 200px;" #Description> </textarea>     
+
+      <div class="table-container CONFIGS" style="position: absolute; left: 1200px;top: 150px;">
+        <table class="table table-borderless" style="width: 450px;">
+          <caption>Configs in group</caption>
+          <div *ngFor="let item of configs">
+            <tr>             
+              <button type="button" class="btn btn-link">
+                <i class="bi bi-trash3" (click)="deleteConfig(item.id)"></i>
+              </button>
               <td>{{item.configName}}</td>
             </tr>
-        </div>
-      </table>
-        
-        <table class="table table-borderless">
+          </div>
+        </table>
+      </div>
+
+      <div class="table-container COMPUTERSinGROUP" style="position: absolute; left: 500px;top: 150px;">
+        <table class="table table-borderless" style="width: 450px; height:300px;">
           <caption>Computers in group</caption>
-          <div class="table-container" *ngFor="let item of computers">
+          <div *ngFor="let item of computers">
           <tr>
+            <button type="button" class="btn btn-link"  (click)="deleteComputer(item.id)">
+              <i class="bi bi-trash3"></i>
+          </button>
             <td>{{item.computerName}}</td>
           </tr>
         </div>
         </table>
-        
+      </div>
 
-    <div class="GroupName">
-      Group Name:
-      <input type="text" name="Group_Name" value="{{group.groupName}}">
+      <div class="table-container CONFIGname"> 
+        <table class="table-addConfig table-borderless" >
+          <thead class="caption">
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Add</th>
+              <th>Config Name</th>
+            </tr>
+          </thead>
+          <tbody  *ngFor="let item of unassignedConfigs">
+            <td></td>
+            <td></td>
+            <td>
+              <button type="button" class="btn btn-link button" >
+                <i class="bi bi-plus-circle" (click)="addConfig(item.id)"></i>
+              </button>
+            </td>
+            <td>{{item.configName}}</td>
+          </tbody>
+        </table>
+      </div>
+
+    <div class="table-container COMPUTERname" >
+      <table >
+        <thead class="caption">
+          <tr>
+            <th>Add</th>
+            <th>Computer Name</th>
+          </tr>
+        </thead>
+        <tbody  *ngFor="let item of unassignedComputers">
+            <td>
+              <button type="button" class="btn btn-link button" >
+                  <i class="bi bi-plus-circle" (click)="addComputer(item.id)"></i>
+              </button>
+            <td>{{item.computerName}}</td>
+        </tbody>
+    </table>
+
+    <div class="Changes">
+      <button type="button" class="btn btn-success" (click)="submit(GroupName.value, Description.value)">Save Changes</button>
     </div>
-
-    <div class="AddConfigBlock">
-      <select name="AddConfig" class="AddConfig" #AddConfig>
-        <option *ngFor="let item of unassignedConfigs" #AddConfig [ngValue]="item.configName">{{item.configName}}</option>
-      </select>
-      
-      <div class="firstButton">
-      <button type="button" class="btn btn-success" (click)="addConfig(parseInt(AddConfig.id))">Add config</button>
   </div>
-      <div class="secondButton">
-      <button type="button" class="btn btn-success" routerLink="/NewConfig">New config</button>
-  </div>
-    </div>
-
-    <div class="AddComputerBlock">
-    <select name="AddComputer" class="AddComputer"  #AddComputer >
-      <option value="Computer1" *ngFor="let item of unassignedComputers"[ngValue]="item.computerName">{{item.computerName}}</option>
-    </select>
-
-    <button type="button" class="btn btn-success" (click)="addComputer(parseInt(AddComputer.id))">Add computer</button>
-  

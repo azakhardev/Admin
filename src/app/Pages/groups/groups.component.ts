@@ -30,6 +30,7 @@ export class GroupsComponent implements OnInit{
     this.groupsService.deleteConfig(group.id).subscribe(() => {
       this.group = this.group.filter(c => c.id !== group.id); 
     });
+    window.location.reload();
   }
 
   logout() {
